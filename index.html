@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos específicos do carrossel */
+        .carousel {
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            flex: 0 0 auto;
+            transition: transform 0.5s ease;
+        }
+    </style>
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -22,13 +36,22 @@
         </div>
     </header>
 
-    <!-- Banner Principal -->
+    <!-- Banner Principal com Carrossel -->
     <section class="banner">
-        <div class="container">
-            <img src="Flores-Silvestres-inverno-Ebook-s.jpg" alt="Livro 1">
-            <h2>Vida Selvagem</h2>
-            <p>Uma Jornada Pela Natureza</p>
-            <button>Compre Agora</button>
+        <div class="carousel">
+            <div class="carousel-item">
+                <img src="Flores-Silvestres-inverno-Ebook-s.jpg" alt="Livro 1">
+                <h2>Vida Selvagem</h2>
+                <p>Uma Jornada Pela Natureza</p>
+                <button>Compre Agora</button>
+            </div>
+            <div class="carousel-item">
+                <img src="banner.jpg" alt="Livro 2">
+                <h2>Outro Livro</h2>
+                <p>Descrição do outro livro</p>
+                <button>Compre Agora</button>
+            </div>
+            <!-- Adicione mais itens do carrossel conforme necessário -->
         </div>
     </section>
 
@@ -89,5 +112,28 @@
             <a href="#"><img src="playstore.png" alt="Google Play"></a>
         </div>
     </footer>
+
+    <!-- Script para Carrossel -->
+    <script>
+        // Script para fazer o carrossel funcionar
+        const carousel = document.querySelector('.carousel');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+
+        let currentIndex = 0;
+        const maxIndex = carouselItems.length - 1;
+
+        function moveCarousel(direction) {
+            if (direction === 'next') {
+                currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
+            } else {
+                currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex;
+            }
+            const newPosition = -currentIndex * 100 + '%';
+            carousel.style.transform = `translateX(${newPosition})`;
+        }
+
+        setInterval(() => moveCarousel('next'), 5000); // Move para o próximo item a cada 5 segundos
+    </script>
 </body>
 </html>
+

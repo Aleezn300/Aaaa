@@ -50,11 +50,21 @@ header nav ul li a {
 
 /* Main Banner */
 .banner {
-    background-image: url('banner.jpg');
-    background-size: cover;
+    background-color: #333;
     color: #fff;
     text-align: center;
     padding: 100px 0;
+    overflow: hidden; /* Esconder itens fora do banner */
+}
+
+.banner .carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.banner .carousel-item {
+    min-width: 100%;
+    flex: 0 0 auto;
 }
 
 .banner h2 {
@@ -134,34 +144,6 @@ header nav ul li a {
     margin-bottom: 10px;
 }
 
-/* Popular Books */
-.popular-books {
-    background-color: #fff;
-    padding: 40px 0;
-}
-
-.popular-books h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.popular-books .books {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.popular-books .book {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.popular-books .book img {
-    width: 150px;
-    height: auto;
-    margin-bottom: 10px;
-}
-
 /* Quote of the Day */
 .quote {
     background-color: #333;
@@ -176,52 +158,6 @@ header nav ul li a {
 
 .quote p {
     font-style: italic;
-}
-
-/* Latest Articles */
-.latest-articles {
-    background-color: #fff;
-    padding: 40px 0;
-}
-
-.latest-articles h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.articles {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.articles article {
-    text-align: center;
-    margin-bottom: 30px;
-    max-width: 300px;
-}
-
-.articles article img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.articles article h3 {
-    margin-bottom: 10px;
-}
-
-.articles article p {
-    font-size: 1em;
-}
-
-.articles article a {
-    color: #4CAF50;
-    text-decoration: none;
-}
-
-.articles article a:hover {
-    text-decoration: underline;
 }
 
 /* Footer */
@@ -301,3 +237,4 @@ footer a img {
         width: 100%;
     }
 }
+
